@@ -1,0 +1,22 @@
+.header {
+    &-main{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            width: 100px;
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style-type: none;
+        }
+        
+        .icon {
+            display: flex;
+            
+        }
+
+    }
+}

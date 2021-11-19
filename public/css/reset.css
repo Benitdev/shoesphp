@@ -1,0 +1,32 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+input,
+textarea,
+section,
+button {
+    outline: none;
+}
+
+input {
+    line-height: normal;
+}
+
+label, button {
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    display: block;
+}
