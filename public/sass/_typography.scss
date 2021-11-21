@@ -1,4 +1,17 @@
 body {
-    font-family: $font;
+    font-family: $font-primary;
     font-size : 16px;
+    line-height: 1;
+    color: black;
+}
+header{
+    color: white;
+}
+main{
+    .banner {
+        color: white;
+    }
+}
+h2 {
+    font-family: $font-logo;
 }

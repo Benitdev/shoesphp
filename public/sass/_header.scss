@@ -1,21 +1,43 @@
 .header {
+    background-color: rgba(8, 1, 1, 0.7);
+    width: 100%;
+    position: fixed;
+    box-shadow: 0rem .3rem 1rem rgb(231, 38, 38);
+    z-index: 100;
     &-main{
         display:flex;
         justify-content: space-between;
         align-items: center;
+        height: 5rem;
+        width: 100%;
         .logo{
-            width: 100px;
-        }
-        .menu {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 20px;
-            list-style-type: none;
-        }
-        
-        .icon {
+            color: rgba(255, 0, 0, 0.9);
+            img{
+                width: 4rem;
+            }
+           
+        }  
+        .login {
             display: flex;
-            
+            justify-content: center;
+            align-items: center;
+            gap: 0 1rem;
+            .btn {
+                box-shadow: .1rem .1rem .2rem rgb(241, 38, 38);
+                padding: .6rem 1.5rem;
+                background-image: linear-gradient( to right, rgb(241, 114, 10, .4), rgb(206, 18, 18, .5));
+            }
+            .btn-signin:hover {
+                color: lightgray;
+                background-image: linear-gradient( to right, rgb(241, 114, 10), rgb(206, 18, 18));
+            }
+            .btn-signup:hover {
+                color: lightgray;
+                background-image: linear-gradient( to right, rgb(241, 114, 10), rgb(206, 18, 18));
+            }
         }
 
     }
