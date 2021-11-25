@@ -2,7 +2,7 @@
     background-color: rgba(8, 1, 1, 0.7);
     width: 100%;
     position: fixed;
-    box-shadow: 0rem .3rem 1rem rgb(231, 38, 38);
+    box-shadow: 0rem .3rem 1rem $color ;
     z-index: 100;
     &-main{
         display:flex;
@@ -14,31 +14,63 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: rgba(255, 0, 0, 0.9);
+            color: white;
             img{
                 width: 4rem;
             }
            
         }  
-        .login {
+        .header-icon {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: flex-end;
             gap: 0 1rem;
-            .btn {
-                box-shadow: .1rem .1rem .2rem rgb(241, 38, 38);
-                padding: .6rem 1.5rem;
-                background-image: linear-gradient( to right, rgb(241, 114, 10, .4), rgb(206, 18, 18, .5));
+            width: 20rem;
+            i {
+                font-size: 1.5rem;
+                color: $color;
+                cursor: pointer;
             }
-            .btn-signin:hover {
-                color: lightgray;
-                background-image: linear-gradient( to right, rgb(241, 114, 10), rgb(206, 18, 18));
+            .search-box {
+                width: 1.5rem;
+                display: flex;
+                align-items: center;
+                border-radius: 100rem;
+                background-color: unset;
+                transition: width .5s;
+                input {
+                   width: 0;
+                   border: none;
+                }
             }
-            .btn-signup:hover {
-                color: lightgray;
-                background-image: linear-gradient( to right, rgb(241, 114, 10), rgb(206, 18, 18));
+            .search-box:hover {
+                background-color: white;
+                padding: .2rem .5rem;
+                width: 100%;
+                input {
+                   flex: 1;
+                }
+                i{
+                    color: black;
+                }
             }
+            .cart-icon {
+                border-left: .1rem solid $color;
+                padding-left: 1rem;
+            }
+
         }
 
     }
+}
+.wrap-3d {
+    perspective: 400px;
+    img {
+        // transform-style: preserve-3d;
+        transition: .5s;
+    }
+  
+}
+.logo:hover img {
+    transform: rotateY(-180deg);
 }

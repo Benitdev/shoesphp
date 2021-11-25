@@ -1,16 +1,17 @@
 <?php 
 class Home extends Controller {
-    var $HomeModel;
+    var $ProductModel;
     public function __construct()
     {
         // Call Models
-        $this->HomeModel = $this->model("HomeModel");
+        $this->ProductModel = $this->model("ProductModel");
     }
-    public function showHome(){        
-        
+    public function showHome(){      
 
         // Call Views
-        $this->view("home");
+        $this->view("home", [
+            "productList" =>  $this->ProductModel->getProductList()
+        ]);
     }
 }
 ?>
