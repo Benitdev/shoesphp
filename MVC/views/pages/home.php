@@ -34,6 +34,9 @@
         <footer class="footer">
           <?php require_once("./mvc/views/components/Footer.php") ?>
         </footer>
+        <button class="back-to-top">
+          <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
     <!-- Slider -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>

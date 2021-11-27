@@ -69,6 +69,23 @@ h2 {
   position: relative;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+  width: 3rem;
+  height: 4rem;
+  background: radial-gradient(#a74848, #dbb2b2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100rem;
+  z-index: 100;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
 @keyframes top-down {
   0% {
     opacity: 0;
@@ -120,7 +137,7 @@ h2 {
 }
 .header-nav {
   position: fixed;
-  z-index: 99;
+  z-index: 100;
   width: 100%;
 }
 .header .nav-main {
