@@ -1,0 +1,46 @@
+.collection {
+    display: flex;
+    height: 80vh;
+    &-men, &-women {
+        position: relative;
+        width: 50%;
+        overflow: hidden;
+    }
+    &-men:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+    &-men:hover,  &-women:hover {
+        cursor: pointer;
+        img {
+        transform: scale(1.2) rotate(10deg);
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+    &-women:after { 
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    img {
+        height: 120%;
+        width: 120%;
+        object-fit: cover;
+        transition: all .3s;
+    }
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+}

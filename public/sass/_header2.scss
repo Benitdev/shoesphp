@@ -1,0 +1,293 @@
+.header {
+    position: relative;
+    height: 100vh;
+    background-image: url("http://localhost/shoesphp/public/images/banners/banner-bg.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    &-nav {
+        position: fixed;
+        z-index: 99;
+        width: 100%;
+    }
+    .nav-main {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5rem;
+        font-size: 1.5rem;
+        .cart, .menu {
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+        .menu {
+            animation: left-to-right 1.5s;
+        }
+        .cart {
+            animation: right-to-left 1.5s;
+        }
+        .logo {
+            animation: top-down 1.5s forwards;
+            font-weight: 900;
+        }
+        .hamburger {
+            position: relative;
+        }
+        .hamburger,
+        .hamburger:before,
+        .hamburger:after {
+            width: 2rem;
+            height: .2rem;
+            border-radius: 100rem;
+            background-color: white;
+
+        }
+        .hamburger:before,
+        .hamburger:after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+        .hamburger:before {
+            top: -10px;
+        }
+        .hamburger:after {
+            top: 10px;
+        }
+    }
+    .title {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 1.5rem;
+        z-index: 99;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-size: 1.2rem;
+        font-weight: 800;
+        animation: right-to-left 1.5s;
+    }
+    
+    .product-info {
+        position: absolute;
+        z-index: 99;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        padding: 0 4rem;
+        &-main {
+            position: absolute;
+            right: 0;
+            pointer-events: none;
+            width: 100%;
+            gap: 1rem;
+            display: flex;
+            padding: 0 4rem;
+            flex-direction: column;
+            text-align: right;
+            align-items: flex-end;
+            h1 {
+                transition: 1s;
+                font-size: 4rem;
+                text-transform: uppercase;
+                width: 90%;
+                letter-spacing: 4rem;
+            }
+            h2 {
+                background: linear-gradient(45deg, #a09de6, #c1d3cb 80%);
+                background-clip: text;
+                -webkit-background-clip: text;  
+                color: transparent;
+            }
+            p {
+                margin: 1rem 0;
+                text-align: justify;
+                background: linear-gradient(to right, rgb(177, 235, 177), rgb(133, 133, 228), rgb(230, 230, 138));
+                background-clip: text;
+                -webkit-background-clip: text;  
+                color: transparent;
+                transition: 1.5s;
+                transition-delay: .3s;
+                opacity: 0;
+            }
+            .btn-buynow {
+                display: flex;  
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(to left, white 50%, rgb(112, 181, 238) 50%);
+                background-size: 200%;
+                background-position: right;
+                transition: all .5s;
+                gap: 0 1rem;
+                width: 12rem;
+                padding: .5rem;
+                font-size: 1rem;
+                border-radius: unset;
+                color: black;
+                position: relative;
+                .icon {
+                    font-size: 2rem;
+                }
+            }
+            .btn-buynow::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to left, transparent 50%, rgb(97, 118, 212) 50%);
+                background-size: 200%;
+                background-position: right;
+                transition: all .5s;
+                position: absolute;
+                top: .4rem;
+                left: .4rem;
+                border: .1rem solid white;
+                z-index: -2;
+                cursor: pointer;
+            }
+            .btn-buynow:hover {
+                background-position: left;
+                // color: gray;
+            }
+            .btn-buynow:hover::before {
+                background-position: left;
+            }
+        }
+    }
+    .product-info-main.active {
+        pointer-events: visible;
+        opacity: 1;
+        transition: 1.3s;
+        h1 {
+            letter-spacing: .5rem;
+        }
+        span {
+            animation: left-to-right 1.5s;
+        }
+        button {
+            animation: bottom-up 1.5s;
+        }
+        p {
+            opacity: 1;
+        }
+    }
+    .product-info-main {
+        opacity: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        right: 0;
+        z-index: 98;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        transition: 1.2s ease-in-out;
+        animation: bottom-up 1.5s;
+        .slide {
+            position: absolute;
+            transition: 1.3s;
+        }
+        .img-holder {
+            width: 100%;
+            height: 100%;
+            background-position: left;
+            background-size: cover;
+            border-radius: 1rem;
+        }
+        .slide:nth-child(1) {
+            z-index: 4;
+            width: 50%;
+            height: 75%;
+        }
+        .slide:nth-child(2) {
+            z-index: 3;
+            width: 35%;
+            height: 60%;
+            left: 40%;
+            
+        }
+        .slide:nth-child(3) {
+            z-index: 2;
+            width: 30%;
+            height: 45%;
+            left: 60%; 
+        }
+        .slide:nth-child(4) {
+            z-index: 1;
+            width: 10%;
+            height: 10%;
+            left: 40%; 
+        }
+    }
+    .slide-control {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        z-index: 100;
+        transform: translateX(-50%);
+        padding: .5rem .6rem;
+        border: .1rem solid lightgray;
+        border-radius: 100rem;
+        background-color: transparent;
+        color: lightgray;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+    .slide-control:hover {
+        background: black;
+        color: white;
+    }
+
+}
+.header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.product-banner {
+    position: relative;
+    height: 100vh;
+}
+@media screen and (max-width: 767px) {
+    .header {
+        .col-5, .col-7 {
+            width: 100%;
+        }
+        .product-banner {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .slider {
+            top: 5%;
+            height: 60%;
+        }
+        .product-info {
+            bottom: 5%;
+            height: 40%;
+            h1 {
+                font-size: 2rem;
+                text-align: left;
+            }
+            p {
+                font-size: .7rem;
+            }
+            &-main {
+                gap: .2rem ;
+            }
+            .btn-buynow {
+                font-size: .8rem;
+                width: 8rem;
+                gap: .2rem;
+            }
+        }
+        .slider {
+            padding: 2rem;
+        }
+    }
+}
+
+

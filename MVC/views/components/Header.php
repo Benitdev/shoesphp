@@ -20,6 +20,7 @@
                 <i class='bx bx-search'></i>
                 <input type="text" placeholder="Ten san pham">
             </div>
+            <span></span>
             <i class='bx bxs-cart-alt cart-icon'></i>
             <i class='bx bxs-user user-icon'></i>
         </div>

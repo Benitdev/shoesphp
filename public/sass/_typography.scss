@@ -6,6 +6,7 @@ body {
 }
 header{
     color: white;
+    font-family: $rubik-font;
 }
 main{
     .banner {
@@ -13,5 +14,9 @@ main{
     }
 }
 h2 {
-    font-family: $logo-font;
+    font-family: $rubik-font;
+}
+
+.yellow {
+    color: $color;
 }

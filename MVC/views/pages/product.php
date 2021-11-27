@@ -8,7 +8,7 @@
     <title>Document</title>
     <base href="http://localhost/shoesphp/">
     <link rel="stylesheet" href="public/css/app.css">
-    <link rel="stylesheet" href="public/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
