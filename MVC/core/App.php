@@ -8,16 +8,18 @@ class App{
     function __construct(){
 
         $arr = $this->handleUrl();
+
           //Controller
-          if( file_exists("./mvc/controllers/".$arr[0]. "Controller".".php") ){
+          if( file_exists("./mvc/controllers/".$arr[0].".php") ){
             $this->controller = $arr[0]; 
             unset($arr[0]);
         }
-        require_once "./mvc/controllers/". $this->controller. "Controller". ".php";
+        require_once "./mvc/controllers/". $this->controller.".php";
         // Action
         if(isset($arr[1])){      
             if( method_exists( $this->controller , $arr[1]) ){
                 $this->action = $arr[1];
+                unset($arr[1]);
             }else {
                 $this->action = "show".$this->controller;
             }   
@@ -28,7 +30,8 @@ class App{
         $this->params = $arr?array_values($arr):[];
 
         $this->controller = new $this->controller;
-        call_user_func_array([$this->controller, $this->action], $this->params );
+        
+        call_user_func_array([$this->controller, $this->action], $this->params);
 
     }
 

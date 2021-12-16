@@ -1,0 +1,78 @@
+.menu-overlay {
+    position: fixed;
+    top: 5rem;
+    z-index: 101;
+    left: 0;
+    background-color: rgba(0, 0, 0, .92);
+    overflow: hidden;
+    transition: .5s;
+    width: 0;
+   /*  display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: calc(100vh - 5rem);
+    .menu {
+        // display: none;
+        padding: 3rem;
+        list-style: none;
+        font-size: 1.5rem;
+        width: 20rem;
+        margin: 0 auto;
+        text-align: center;
+        transition: .5s ease;
+        height: 100%;
+        li {
+            color: white;
+            padding: 2rem 0 1.5rem 0;
+            cursor: pointer;
+            a {
+            color: transparent;
+            background: linear-gradient(to right, rgb(197, 197, 18) 50%, white 50%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-size: 200%;
+            background-position: right;
+            transition: .5s;
+            // font-weight: 1500;
+            }
+            .underline {
+                margin-top: 1.5rem;
+                height: .2rem;
+                width: 100%;
+                background: linear-gradient(to right, rgb(197, 197, 18) 50%, white 50%);
+                background-size: 200%;
+                background-position: right;
+                transition: .5s;
+            }
+        }
+        li:hover {
+            .underline {
+                background-position: left;
+            }
+            a {
+                background-position: left;
+            }
+        }
+        .li-login, .li-logout {
+            width: fit-content;
+            height: fit-content;
+            color: #2691d9;
+            font-size: 1rem;
+            margin: 0 auto ;
+            i {
+                margin-left: .5rem;
+            }
+        }
+        .li-login:hover, .li-logout:hover {
+            color: white;
+        }
+        .li-logout {
+            padding: 2rem 0;
+        }
+        
+    }
+}
+.menu-overlay.active {
+    width: 100%;
+}
+

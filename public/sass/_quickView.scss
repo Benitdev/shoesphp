@@ -1,0 +1,65 @@
+.quick-view {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: 0.25s;
+    .control {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    .prev {
+        left: 3rem;
+    }
+      
+    .next {
+        right: 3rem;
+    }
+    &-wrap {
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        display: flex;
+        .close {
+            color: white;
+            font-size: 35px;
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            cursor: pointer;
+        }
+        .image {
+            width: 50%;
+            height: 100%;
+            background-color: blue;
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .info {
+            width: 50%;
+            height: 100%;
+            background-color: gray;
+        }
+    }
+}
+
+.quick-view.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+.hide {
+    display: none;
+}

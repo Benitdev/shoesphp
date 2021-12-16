@@ -1,17 +1,18 @@
-.menu {
+.home-product-menu {
     display: flex;
     align-items: center;
     list-style-type: none;
     height: 100%;
-    margin-left: 2rem;
     li {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        padding: 0 1rem;
         position: relative;
         cursor: pointer;
+    }
+    li:first-child, li:nth-child(2) {
+        width: 5rem;
     }
     li:after {
         position: absolute;
@@ -25,12 +26,16 @@
         opacity: 0;
         visibility: hidden;
     }
-    &-link {
-        color: inherit;
+    a {
+        display: flex;
+        align-items: center;
+        color: black;
+        height: 100%;
+        padding: 0 1rem;
     }
      
     li:hover{
-        background-color: rgb(3, 0, 0, .5);
+        background-color: rgba(95, 84, 84, 0.5);
         &:after {
             opacity: 1;
             visibility: unset;
