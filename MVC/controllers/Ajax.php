@@ -45,13 +45,27 @@ class Ajax extends Controller
         echo number_format($_SESSION['product'][$id]['total']);
     }
 
-    function totalOrder() {
+    function selectCart()
+    {
+        $id = $_POST['id'];
+        $_SESSION['product'][$id]['isChecked'] = true;
+    }
+    function unSelectCart()
+    {
+        $id = $_POST['id'];
+        $_SESSION['product'][$id]['isChecked'] = false;
+    }
+
+    function totalOrder()
+    {
 
         $count = 0;
         $fee = 0;
         foreach ($_SESSION['product'] as $value) {
-            $count += $value['total'];
-            $fee += ($value['total'] * 1 / 200);
+            if ($value['isChecked']) {
+                $count += $value['total'];
+                $fee += ($value['total'] * 1 / 200);
+            }
         }
         $total = $count - $fee;
         $arr = [number_format($count), number_format($fee), number_format($total)];

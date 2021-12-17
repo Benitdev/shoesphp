@@ -45,7 +45,7 @@
 
 }
 // ajax handle cart
-if (document.querySelector('.cart-session')) {
+if (document.querySelector('.cart-section')) {
 	let listItemCart = [...document.querySelectorAll('.item-wrap')]
 
 	let btnDelCart = document.querySelectorAll('.btn-del-cart')
@@ -56,6 +56,8 @@ if (document.querySelector('.cart-session')) {
 	let productNumber = document.querySelector('.product-number')
 	let totalOrder = document.querySelector('.product-total')
 	let sumTotal = document.querySelector('.total-order')
+
+	console.log(idRowCart[0].checked)
 	btnDelCart.forEach((value, index) => {
 		value.onclick = () => {
 			let id = idRowCart[index].value
@@ -65,7 +67,6 @@ if (document.querySelector('.cart-session')) {
 				productNumber.innerText = `Tạm tính (${listItemCart.length} sản phẩm): `
 			})
 			changeTotalOrder()
-
 		}
 	})
 
@@ -106,7 +107,6 @@ if (document.querySelector('.cart-session')) {
 		let id = idRowCart[index].value
 		value.onchange = () => {
 			ajaxChangeQuantity(id, value.value, index)
-
 			productNumber.innerText = `Tạm tính (${listItemCart.length} sản phẩm): `
 			changeTotalOrder()
 		}
@@ -130,6 +130,21 @@ if (document.querySelector('.cart-session')) {
 
 	productNumber.innerText = `Tạm tính (${listItemCart.length} sản phẩm): `
 	changeTotalOrder()
+
+	idRowCart.forEach((value) => {
+		value.addEventListener('input', () => {
+			if (value.checked) {
+				$.post('./ajax/selectCart', {id: value.value}, (data) => {
+					console.log('check')
+					changeTotalOrder()
+				})
+			} else
+				$.post('./ajax/unSelectCart', {id: value.value}, (data) => {
+					changeTotalOrder()
+				})
+		})
+	})
+
 }
 
 // filter type product
@@ -141,10 +156,10 @@ if (document.querySelector('.cart-session')) {
 		item.onclick = () => {
 			let typeActive = document.querySelector('.product-type p.active')
 			if (typeActive)
-					typeActive.classList.remove('active')
+				typeActive.classList.remove('active')
 			item.classList.add('active')
 			listProduct.forEach((itemProduct) => {
-				if (itemProduct.querySelector('.desc').innerText.trim().includes(item.innerText)) { 
+				if (itemProduct.querySelector('.desc').innerText.trim().includes(item.innerText)) {
 					itemProduct.classList.remove('hide')
 				}
 				else {
@@ -157,10 +172,8 @@ if (document.querySelector('.cart-session')) {
 }
 
 // filter sida bar
-{
+if (document.querySelector('.color-filter .title')) {
 	let colorFilter = document.querySelector('.color-filter .title')
-
-	console.log(colorFilter)
 	colorFilter.onclick = () => {
 		document.querySelector('.colors-wrap').classList.toggle('active')
 		colorFilter.querySelector('i').classList.toggle('rotate180')

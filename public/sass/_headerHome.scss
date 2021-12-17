@@ -1,9 +1,9 @@
 .header-home {
     position: relative;
     height: 100vh;
-    background-image: url("http://localhost/shoesphp/public/images/banners/banner-bg.webp");
-    background-position: center;
-    background-size: cover;
+    background-image: url("http://localhost/shoesphp/public/images/banners/banner-bgg.webp");
+    background-position: left;
+    background-size: 155%;
     background-repeat: no-repeat;
     overflow: hidden;
     &-nav {
@@ -13,7 +13,7 @@
         transition: all .8s;
     }
     &-nav.scroll {
-        background-color: black;
+        background-color: #1f2833;
     }   
     .nav-main {
         display:flex;
@@ -21,6 +21,8 @@
         align-items: center;
         height: 5rem;
         font-size: 1.5rem;
+        color: $primary-color;
+
         .menu-wrap {
             width: 15%;
         }
@@ -34,7 +36,7 @@
             width: fit-content;
         }
         .cart {
-            color: white;
+            color: $primary-color;
             width: 15%;
             animation: right-to-left 1.5s;
             display: flex;
@@ -67,7 +69,7 @@
             width: 2rem;
             height: .2rem;
             border-radius: 100rem;
-            background-color: white;
+            background-color: $primary-color;
             transition: .5s;
 
         }
@@ -89,13 +91,13 @@
         .hamburger.active::before {
             transform-origin: top left;
             transform: rotate(40deg);
-            background-color: yellow;
+            background-color: $primary-color;
             
         }
         .hamburger.active::after {
             transform-origin: bottom left;
             transform: rotate(-40deg);
-            background-color: yellow;
+            background-color: $primary-color;
         }
     }
     .title-home {
@@ -140,7 +142,7 @@
                 letter-spacing: 3rem;
             }
             h2 {
-                background: linear-gradient(to right, rgb(177, 235, 177), rgb(133, 133, 228), rgb(230, 230, 138));
+                background: linear-gradient(to right, #338788, rgb(133, 133, 228), rgb(138, 178, 230));
                 background-clip: text;
                 -webkit-background-clip: text;
                 color: transparent;
@@ -154,18 +156,19 @@
               /*   background: linear-gradient(to right, rgb(177, 235, 177), rgb(133, 133, 228), rgb(230, 230, 138));
                 background-clip: text;
                 -webkit-background-clip: text;   */
-                color: rgb(223, 223, 154);
+                color: white;
                 transition: 1.5s;
                 transition-delay: .3s;
                 height: 3rem;
                 overflow: hidden;
                 opacity: 0;
+                font-family: $rubik-font;
             }
             .btn-buynow {
                 display: flex;  
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(to left, white 50%, rgb(112, 181, 238) 50%);
+                background: linear-gradient(to left, transparent 50%, #45a29e 50%);
                 background-size: 200%;
                 background-position: right;
                 transition: all .5s;
@@ -174,14 +177,17 @@
                 padding: .5rem;
                 font-size: 1rem;
                 border-radius: unset;
-                color: black;
+                color: white;
                 position: relative;
+                border: .2rem solid #45a29e;
+                font-family: $primary-font;
+                box-shadow: 2px 2px 1px #66fcf1;
                 .icon {
                     font-size: 2rem;
                 }
             }
             .btn-buynow::before {
-                content: '';
+               /*  content: '';
                 width: 100%;
                 height: 100%;
                 // background: linear-gradient(to left, transparent 50%, rgb(97, 118, 212) 50%);
@@ -193,7 +199,7 @@
                 left: .4rem;
                 border: .1rem solid white;
                 z-index: -2;
-                cursor: pointer;
+                cursor: pointer; */
             }
             .btn-buynow:hover {
                 background-position: left;
@@ -204,13 +210,13 @@
         }
         &-main:nth-child(1) {
             h1 {
-                color: rgb(216, 144, 144);
-                text-shadow: 0 0 10px rgb(212, 128, 128);
+                color: #66fcf1;
+                // text-shadow: 0 0 10px rgb(212, 128, 128);
             }
         }
         &-main:nth-child(2) {
             h1 {
-                color: rgb(11, 15, 20);
+                color: rgb(202, 130, 130);
                 text-shadow: 0 0 10px rgb(58, 48, 48);
 
             }
@@ -341,7 +347,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.77);
 }
 @media screen and (max-width: 767px) {
     .header {

@@ -1,4 +1,4 @@
-<section class="cart-session">
+<section class="cart-section">
   <h1> My Cart</h1>
   <div class="container">
     <div class="cart-wrapper">
@@ -18,8 +18,8 @@
               foreach ($_SESSION['product'] as $value) {
           ?>
                 <div class="item-wrap">
+                  <input class="id-cart" <?php if ($value['isChecked']) echo 'checked' ?> type="checkbox" value='<?php echo $value['id']?>'> 
                   <a href="product/detail/<?php echo $value['slug']?>/<?php echo $value['id']?>" class="info-wrap">
-                    <input class="id-cart" style="display: none" value='<?php echo $value['id']?>'>
                     <div class="img-wrap">
                       <img src="<?php echo $value['avatar'] ?>" alt=''>
                     </div>
@@ -37,7 +37,7 @@
                     <?php echo number_format($value['total']) ?> đ
                   </div>
                   <div class="del">
-                    <input type="submit" class="btn btn-del-cart" value="Xóa">
+                    <input type="button" class="btn btn-del-cart" value="Xóa">
                   </div>
                 </div>
           <?php
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="total-cart">
-        <h3> Thông tin đơn hàng </h3>
+        <h3> Thông tin giỏ hàng </h3>
         <div class="order-infos">
           <div class="order-products">
             <p class="product-number"> Tạm tính (<?php 
@@ -72,9 +72,9 @@
           </div>
           <p class="discount-status"></p>
           <p class="total-order"></p>
-          <button class="btn btn-checkout">
+          <a href="checkout" class="btn btn-checkout">
             THANH TOÁN
-          </button>
+          </a>
           <button class="btn btn-keepshop">
             TIẾP TỤC MUA HÀNG
           </button>

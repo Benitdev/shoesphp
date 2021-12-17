@@ -23,6 +23,7 @@ class Cart extends Controller
                 $arr = $_SESSION['product'][$id];
                 $arr['quantity']++;
                 $arr['total'] = $arr['quantity'] * $arr["price"];
+                $arr['isChecked'] = true;
                 $_SESSION['product'][$id] = $arr;
             } else {
                 $arr['id'] = $data->id;
@@ -32,6 +33,7 @@ class Cart extends Controller
                 $arr['slug'] = $data->slug;
                 $arr['total'] =  $arr['quantity'] * $arr["price"];
                 $arr['avatar'] = $data->avatar;
+                $arr['isChecked'] = true;
                 $_SESSION['product'][$id] = $arr;
             }
 

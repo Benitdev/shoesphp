@@ -2,7 +2,8 @@ main {
     .popular {
         padding: 3rem 0;
         padding-bottom: 30rem;
-        background: radial-gradient(rgb(226, 207, 207) 40%, rgb(159, 215, 233));
+        // background: radial-gradient($primary-color 40%, $secondary-color);
+        background-color: $secondary-color;
         h1 {
             padding: 1.5rem 0;
         }
@@ -12,8 +13,8 @@ main {
             grid-template-columns: repeat(4, 1fr); 
             // grid-template-rows: repeat(4, 1);
             grid-gap: 2rem;
-            border-top: .2rem solid gray;
-            border-bottom: .2rem solid gray;
+            border-top: .2rem solid $tertiary-color;
+            border-bottom: .2rem solid $tertiary-color;
             position: relative;
             &-item {
                 position: relative;
@@ -23,11 +24,12 @@ main {
                 height: 25rem;
                 gap: 1rem;
                 padding-bottom: 1rem;
-                background: rgba(196, 189, 189, 0.534);
+                background: #c5c6c7;
                 box-shadow: .1rem .1rem .2rem rgb(155, 82, 94);
                 img {
                     object-fit: cover;
                     height: 65%;
+                    background-color: rgb(248, 245, 245);
                 }
                 .cate-name {
                     position: absolute;
@@ -96,13 +98,14 @@ main {
                 bottom: 0;
                 padding: 1rem 2rem;
                 transform: translate(-50%, 50%);
-                background-color: rgb(230, 215, 215);
-                border: .1rem solid black;
+                background-color: $tertiary-color;
+                border: .2rem solid $primary-color;
                 font-family: $primary-font;
+                color: white;
             }
             .btn-shopnow:hover {
                 font-size: 1rem;
-                background-color: rgb(201, 182, 182);
+                background-color: $secondary-color;
 
             }
         }

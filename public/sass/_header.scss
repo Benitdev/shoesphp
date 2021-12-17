@@ -1,5 +1,5 @@
 .header-product {
-    background-color: white;
+    background-color: #1f2833;
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: black;
+            color: #66fcf1;
             width: fit-content;
             img{
                 width: 4rem;
@@ -32,7 +32,7 @@
             width: 25%;
             i {
                 font-size: 1.5rem;
-                color: $color;
+                color: #66fcf1;
                 cursor: pointer;
             }
             i:hover {
@@ -41,7 +41,7 @@
             span {
                 width: .05rem;
                 height: 1.5rem;
-                background-color: $color;
+                background-color: $primary-color;
             }
             .search-box {
                 width: 1.5rem;

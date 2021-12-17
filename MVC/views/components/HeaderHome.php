@@ -42,7 +42,15 @@
                 ?>
                      <div class="product-info-main">
                          <h1>
-                             <?php echo $product->name ?>
+                             <?php $name = explode(" ", filter_var(trim($product->name, "/")));
+                             foreach ($name as $key => $value) {
+                                if ($key == 2 || $key == 3) {
+                                    ?> <span style="color: yellow"> <?php echo $value ?></span>
+                             <?php
+                               } else
+                                    echo $value.' ';
+                             }
+                            ?>              
                          </h1>
                          <!-- <h1> <span class="yellow">PRO</span>DUCT </h1> -->
                          <h2> <?php echo $product->typeName ?></h2>
