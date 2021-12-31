@@ -51,8 +51,24 @@
                 }
             }
             i {
+                position: relative;
                 pointer-events: visible;
             }
+        }
+        .cart-count {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            background-color: $secondary-color;
+            border-radius: 100rem;
+            color: white;
+            font-size: .6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .logo {
             cursor: pointer;

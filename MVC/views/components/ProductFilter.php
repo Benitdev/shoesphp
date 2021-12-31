@@ -3,7 +3,7 @@
            <div class="product-filter-title">
                <div class="product-href">
                    <a href="">Trang chủ </a>
-                   <?php echo "/ " . $data['cate'] ?>
+                   <a> <?php echo "/ " . $data['cate'] ?> </a>
                </div>
                <div class="sort">
                    <p class="hide-filters"> Hide filters </p>

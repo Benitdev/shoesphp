@@ -22,7 +22,7 @@
 <body>
   <div class="wrapper">
     <!-- header -->
-    <header class="header-product" id="header-product">
+    <header class="header-product" id="header-product" data-scroll>
       <?php
       require_once('./mvc/views/components/HeaderProduct.php');
       ?>
@@ -32,21 +32,20 @@
     <main>
       <!--   <?php require_once('./mvc/views/components/HomeBanner.php') ?> -->
       <?php
-        require_once('./mvc/views/components/'.$data['component'].'.php');
-      
+      require_once('./mvc/views/components/' . $data['component'] . '.php');
       ?>
     </main>
     <!-- end main -->
     <!-- footer  -->
     <footer class="footer">
       <?php require_once("./mvc/views/components/Footer.php") ?>
-    </footer> -->
+    </footer>
     <!-- end footer  -->
     <button class="back-to-top">
       <i class="fas fa-arrow-up"></i>
     </button>
   </div>
-  <!-- <?php require_once("./mvc/views/components/Cart.php") ?> -->
+  <?php require_once("./mvc/views/components/Login.php") ?>
   <!-- Slider -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

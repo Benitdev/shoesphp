@@ -149,6 +149,9 @@
             height: 3rem;
             margin-top: 1rem;
             width: 50%;
+            &:hover {
+                cursor: pointer;
+            }
         }
     } 
     .radio-field {

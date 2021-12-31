@@ -1,0 +1,64 @@
+.navbar {
+    background-color: #1f2833;
+    padding: 2rem;
+}
+.navbar i {
+    color: #66fcf1;
+    font-size: 1.5rem;
+}
+.navbar p {
+    color: #66fcf1;
+}   
+.navbar-nav {
+    
+
+}
+.container-fluid, .card-body {
+   /* background: linear-gradient(to right, #556270, #45a29d); */
+   background-color: #386aa3;
+
+}
+.container-fluid {
+    min-height: 90vh;
+}
+.card-header {
+    background-color: #3f4b58;
+}
+.table-name {
+    color: white;
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+}
+#dataTable {
+    color: wheat;
+}
+.dataTables_length {
+    color: wheat !important;
+}
+#dataTable_info {
+    color: white;
+}
+#dataTable_wrapper {
+    padding-bottom: 1rem;
+}
+#dataTable_paginate {
+    padding-top: 1rem;
+}
+#dataTable_paginate a {
+    color: white !important;
+}
+.paginate_button.current {
+    border-radius: 10px !important;
+    background-color: #1f2833 !important;
+}
+.btn-add {
+    background-color: #45a29d;
+    color: white;
+}
+#dataTable tr   {
+    background-color: #1f2833;
+}
+
+.card-body {
+    background-color: #1f2833;
+}

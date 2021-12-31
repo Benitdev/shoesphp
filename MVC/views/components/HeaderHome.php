@@ -23,7 +23,16 @@
                              <span> <?php echo ' ' . $_SESSION['login']['firstName'] . ' ' . $_SESSION['login']['lastName'] ?></span>
                          </p>
                      <?php } ?>
-                     <i class="fas fa-shopping-cart"></i>
+                     <i class="fas fa-shopping-cart">
+                     <div class="cart-count">
+                         <?php 
+                            if (isset($_SESSION['product']))
+                                echo count($_SESSION['product']);
+                            else  
+                                echo 0
+                         ?>
+                     </div>
+                     </i>
                  </a>
              </div>
          </div>

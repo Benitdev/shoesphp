@@ -1,19 +1,20 @@
 <?php
 class Checkout extends Controller
 {
-    var $ProductModel;
+    var $AddressModel;
     public function __construct()
     {
         // Call Models
-        $this->ProductModel = $this->model('ProductModel');
+        $this->AddressModel = $this->model('AddressModel');
     }
     function showCheckout()
     {
 
         // Call Views
         $this->view("product", [
-            "component" => "Checkout"
+            "component" => "Checkout",
             // "productList" =>  $this->ProductModel->getProductList()
+            "province" => $this->AddressModel->getProvince()
         ]);
     }
 }

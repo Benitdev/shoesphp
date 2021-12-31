@@ -2,10 +2,15 @@
 class Ajax extends Controller
 {
     var $UserModel;
+    var $AddressModel;
+    var $CouponModel;
     public function __construct()
     {
         // Call Models
         $this->UserModel = $this->model("UserModel");
+        $this->AddressModel = $this->model('AddressModel');
+        $this->CouponModel = $this->model('CouponModel');
+
     }
     function checkEmail()
     {
@@ -22,7 +27,7 @@ class Ajax extends Controller
         $phone =  $_POST['phone'];
         $pass =  password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-        echo $this->UserModel->insertUser($firstName, $lastName, $gender, $email, $phone, $pass);
+        echo $this->UserModel->insertUser($firstName, $lastName, $gender, $email, $phone, '', $pass);
     }
     function login()
     {
@@ -42,7 +47,7 @@ class Ajax extends Controller
         $quantity = $_POST['quantity'];
         $_SESSION['product'][$id]['quantity'] = $quantity;
         $_SESSION['product'][$id]['total'] = $quantity * $_SESSION['product'][$id]['price'];
-        echo number_format($_SESSION['product'][$id]['total']);
+        echo $_SESSION['product'][$id]['total'];
     }
 
     function selectCart()
@@ -61,14 +66,34 @@ class Ajax extends Controller
 
         $count = 0;
         $fee = 0;
-        foreach ($_SESSION['product'] as $value) {
-            if ($value['isChecked']) {
-                $count += $value['total'];
-                $fee += ($value['total'] * 1 / 200);
+        $totalCart = 0;
+        $arr = [0, 0, 0];
+        if (isset($_SESSION['product'])) {
+            foreach ($_SESSION['product'] as $value) {
+                if ($value['isChecked']) {
+                    $count += $value['total'];
+                    $fee += ($value['total'] * 1 / 200);
+                }
+                    $totalCart += $value['total'];
             }
+            $arr = [$count, $fee, $totalCart];
         }
-        $total = $count - $fee;
-        $arr = [number_format($count), number_format($fee), number_format($total)];
         echo json_encode($arr);
+    }
+
+    //get address
+    function getDistrict() {
+        $id = $_POST['id'];
+        echo $this->AddressModel->getDistrict($id);
+    }
+    function getWard() {
+        $id = $_POST['id'];
+        echo $this->AddressModel->getWard($id);
+    }
+
+    //check coupon
+    function checkCoupon() {
+        $code = $_POST['code'];
+        echo $this->CouponModel->checkCoupon($code);
     }
 }

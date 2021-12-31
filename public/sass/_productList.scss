@@ -1,31 +1,36 @@
 main {
     .popular {
         padding: 3rem 0;
-        padding-bottom: 30rem;
+        padding-bottom: 10rem;
         // background: radial-gradient($primary-color 40%, $secondary-color);
         background-color: $secondary-color;
         h1 {
             padding: 1.5rem 0;
         }
         .product-list {
+            position: relative;
             padding: 3rem 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); 
+            // display: grid;
+            // grid-template-columns: repeat(4, 1fr); 
             // grid-template-rows: repeat(4, 1);
-            grid-gap: 2rem;
+            // grid-gap: 2rem;
             border-top: .2rem solid $tertiary-color;
             border-bottom: .2rem solid $tertiary-color;
-            position: relative;
+            .product-list-wrap {
+                margin: 0 -15px;
+            }
             &-item {
                 position: relative;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                width: 10rem;
                 height: 25rem;
                 gap: 1rem;
                 padding-bottom: 1rem;
                 background: #c5c6c7;
                 box-shadow: .1rem .1rem .2rem rgb(155, 82, 94);
+                margin: 0 7px;
                 img {
                     object-fit: cover;
                     height: 65%;
@@ -107,6 +112,27 @@ main {
                 font-size: 1rem;
                 background-color: $secondary-color;
 
+            }
+            
+            .slick-arrow {
+                background-color: $tertiary-color;
+                border: none;
+                color: white;
+                padding: .5rem .8rem;
+            }
+            .slick-prev {
+                position: absolute;
+                top: 50%;
+                // left: -5px;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+            .slick-next {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(50%, -50%);
+                z-index: 1;
             }
         }
     }

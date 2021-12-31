@@ -13,37 +13,42 @@
         <hr>
         <div class="items-wrap">
           <?php
-          if (isset($_SESSION['login'])) {
+          // if (isset($_SESSION['login'])) {
             if (isset($_SESSION['product'])) {
               foreach ($_SESSION['product'] as $value) {
           ?>
                 <div class="item-wrap">
-                  <input class="id-cart" <?php if ($value['isChecked']) echo 'checked' ?> type="checkbox" value='<?php echo $value['id']?>'> 
-                  <a href="product/detail/<?php echo $value['slug']?>/<?php echo $value['id']?>" class="info-wrap">
+                  <input class="id-cart" <?php if ($value['isChecked']) echo 'checked' ?> type="checkbox" value='<?php echo $value['id'] ?>'>
+                  <a href="product/detail/<?php echo $value['slug'] ?>/<?php echo $value['id'] ?>" class="info-wrap">
                     <div class="img-wrap">
                       <img src="<?php echo $value['avatar'] ?>" alt=''>
                     </div>
-                    <p class="name-wrap"><?php echo $value['name'] ?></p>
+                    <div class="text-wrap">
+                      <p class="name-wrap"><?php echo $value['name'] ?></p>
+                      <p class="size-wrap"> Size: <?php echo $value['size'] ?></p>
+                    </div>
                   </a>
                   <div class="price">
-                    <?php echo number_format($value['price']) ?> đ
+                    <?php echo number_format($value['price'], 0 , ',' , '.') ?> đ
                   </div>
                   <div class="quantity">
-                    <button class="btn-dec"></button>
-                    <input type="text" id="quantity" value="<?php echo number_format($value['quantity']) ?>">
-                    <button class="btn-inc"></button>
+                    <i class="fas fa-sort-down btn-dec"></i>
+                    <input type="text" class="quantity-item-cart" value="<?php echo number_format($value['quantity']) ?>">
+                    <i class="fas fa-sort-up btn-inc"></i>
                   </div>
                   <div class="total">
-                    <?php echo number_format($value['total']) ?> đ
+                    <?php echo $value['total'] ?>
                   </div>
                   <div class="del">
-                    <input type="button" class="btn btn-del-cart" value="Xóa">
+                    <button class="btn btn-del-cart">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
                   </div>
                 </div>
           <?php
               }
             }
-          }
+          // }
           ?>
         </div>
       </div>
@@ -51,24 +56,27 @@
         <h3> Thông tin giỏ hàng </h3>
         <div class="order-infos">
           <div class="order-products">
-            <p class="product-number"> Tạm tính (<?php 
-              if (isset($_SESSION['product']))
-                  echo count($_SESSION['product']);
-              else 
-                  echo 0
-                ?> sản phẩm): </p>
+            <p class="product-number"> Tạm tính (<?php
+                                                  if (isset($_SESSION['login'])) {
+                                                    if (isset($_SESSION['product']))
+                                                      echo count($_SESSION['product']);
+                                                    else
+                                                      echo 0;
+                                                  } else
+                                                    echo 0 ?> sản phẩm): </p>
             <p class="product-total"></p>
           </div>
           <div class="delivery-fee">
-              <p> Phí vận chuyển: </p>
-              <p class="fee"></p>
+            <p> Phí vận chuyển: </p>
+            <p class="fee"></p>
           </div>
           <div class="discount">
             <p> Mã giảm giá: </p>
-            <div class="discount-input">
-              <input type="text">
-              <button class="btn btn-discount"> Áp dụng </button>
-            </div>
+            <form class="discount-input" onsubmit="return false">
+              <input type="text" required>
+              <button type='submit' class="btn btn-discount"> Áp dụng </button>
+            </form>
+            <small style="color: red; text-align:center; display: block"></small>
           </div>
           <p class="discount-status"></p>
           <p class="total-order"></p>

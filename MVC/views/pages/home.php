@@ -15,17 +15,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Monda:wght@700&family=Rubik:ital,wght@0,500;0,600;0,700;1,800&display=swap" rel="stylesheet">
 
+  
   <link rel="stylesheet" href="public/css/reset.css">
+  <link rel="stylesheet" href="public/css/slick.css">
+ 
   <link rel="stylesheet" href="public/css/app.css">
 </head>
 
 <body>
   <div class="wrapper">
     <!-- header -->
-    
+
     <?php
-          require_once('./mvc/views/components/HeaderHome.php');
-          require_once('./mvc/views/components/Menu.php');
+    require_once('./mvc/views/components/HeaderHome.php');
+    require_once('./mvc/views/components/Menu.php');
     ?>
     <!-- end header  -->
     <main>
@@ -36,9 +39,9 @@
     <footer class="footer">
       <?php require_once("./mvc/views/components/Footer.php") ?>
     </footer>
-    <a href="#header" class="back-to-top">
+    <button class="back-to-top">
       <i class="fas fa-arrow-up"></i>
-    </a>
+    </button>
   </div>
   <!-- quick view -->
   <?php require_once("./mvc/views/components/QuickView.php") ?>

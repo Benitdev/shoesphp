@@ -43,7 +43,7 @@ html {
 }
 .back-to-top {
     position: fixed;
-    bottom: 4rem;
+    bottom: 0rem;
     right: 2rem;
     width: 3rem;
     height: 4rem;
@@ -55,7 +55,14 @@ html {
     border: none;
     color: $primary-color;
     font-size: 1.5rem;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 4rem;
 }
 
 @keyframes top-down {

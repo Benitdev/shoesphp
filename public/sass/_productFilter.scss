@@ -1,6 +1,7 @@
 .product-filter {
-    background-color: #c5c6c7;
+    background-color: white;
     padding: 5rem 0 10rem 0;
+    min-height: 110vh;
     &-title {
         height: 4rem;
         padding: 1rem 0;
@@ -8,29 +9,30 @@
         justify-content: space-between;
         align-items: center;
         font-size: 1.2rem;
+        z-index: 99;
+        transition: transform 500ms cubic-bezier(.25,.37,.17,.96);
         .cate-title {
             // height: 100%;
-
         }
         .sort {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            height: 100%;
-            position: relative;
+            height: 60%;
             span {
                 width: .1rem;
                 height: 100%;
                 background-color: gray;
             }
             p:last-child {
+                position: relative;
                 padding-right: 2rem;
             }
             i {
                 padding: 0 .5rem;
                 height: 1rem;
                 position: absolute;
-                top: 4px;
+                top: -2px;
                 right: 0;
             }
             .hide-filters:hover {
@@ -42,6 +44,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        transition: .5s;
         .product-sidebar::-webkit-scrollbar {
             width: .5rem;
           }
@@ -55,14 +58,14 @@
           }
         .product-sidebar {
             width: 14rem;
-            height: 25rem;
             overflow-y: scroll;
-            background-color: white;
+            height: calc(100vh - 5rem - 64px);
+            // background-color: white;
             text-align: center;
             padding: 0 0 1rem .5rem;
             position: fixed;
             z-index: 9;
-            transition: .5s;
+            transition: .2s;
             >div {
                 border-bottom: .1rem solid lightgray;
             }
@@ -112,25 +115,34 @@
         }
         .product-main {
             flex: .8;
+            transition: .5s;
             .product-list {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr); 
                 // grid-template-rows: repeat(4, 1);
                 grid-gap:  1.5rem .3rem;
                 position: relative;
+                a {
+                    height: 25rem;
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid black;
+                    } 
+                }
                 &-item {
                     position: relative;
+                    height: 100%;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    height: 25rem;
                     gap: 1rem;
                     padding-bottom: 1rem;
-                    background: white; 
+                    // background: white; 
                     // box-shadow: 0rem .05rem 0rem rgb(155, 82, 94);
                     img {
                         object-fit: cover;
                         height: 70%;
+                        background-color: rgb(248, 245, 245);
                     }
                     .cate-name {
                         position: absolute;
@@ -153,7 +165,7 @@
                         gap: 0rem;
                         h4 {
                             padding-bottom: .3rem;
-                            color: rgb(44, 33, 33);
+                            color: rgb(24, 4, 4);
                             
                         }
                         .desc {
@@ -171,10 +183,6 @@
                         text-shadow: 0px 0px 1px rgb(190, 23, 23);
                     }
                 }
-                &-item:hover {
-                    cursor: pointer;
-                    border: 1px solid black;
-                } 
                
             }
         }
@@ -200,9 +208,11 @@
         gap: 0;
     }
     .product-sidebar {
+        padding: 0;
         width: 0;
     }
     .product-main {
+        flex: 1;
         .product-list {
             grid-template-columns: repeat(4, 1fr);
         }

@@ -40,9 +40,9 @@ class Product extends Controller {
         $this->view("product", [
             "component" => "ProductDetail",
             "productInfo" =>  $this->ProductModel->getProductDetail($name, $id),
-            "productImages" =>  $this->ProductModel->getImages($info->id)
+            "productImages" =>  $this->ProductModel->getImages($info->id),
+            "productSizes" => $this->ProductModel->getSizes($info->id)
         ]);
     }
-  
 }
 ?>

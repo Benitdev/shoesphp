@@ -2,10 +2,58 @@
 class UserModel extends DB
 {
 
-    function insertUser($firstName, $lastName, $gender, $email, $phone, $pass)
+    function getUserList()
+    {
+        $qr = "SELECT * FROM users";
+        $rows = mysqli_query($this->con, $qr);
+        $users = array();
+        while ($row = mysqli_fetch_assoc($rows)) {
+            $users[] = $row;
+        }
+        return json_encode($users);
+    }
+
+    function updateUser($id, $firstName, $lastName, $gender, $phone, $email, $address, $permission_id, $status) {
+        $qr = "UPDATE users set
+                 firstName = '$firstName',
+                lastName = '$lastName',
+                gender = '$gender',
+                phone = '$phone',
+                email = '$email',
+                address = '$address',
+                permission_id = '$permission_id',
+                status = '$status'
+            where id = '$id'";
+         $rs = false;
+         if (mysqli_query($this->con, $qr)) {
+             $rs = true;
+             setcookie('msg', 'Chỉnh sửa thông tin thành công!', time() + 2);
+              header('Location: http://localhost/shoesphp/admin/account');
+            }
+         return $rs;
+
+    }
+
+    function getUserDetail($id = "") {
+        $qr = "SELECT * FROM users
+            where id = '$id'";
+        $rows = mysqli_query($this->con, $qr);
+        $row = mysqli_fetch_assoc($rows);
+        return json_encode($row);
+    }
+    
+    function insertUser($firstName, $lastName, $gender, $email, $phone, $address ='', $pass,  $permission_id = '0', $status = '1')
     {
         $qr = "INSERT into users VALUE(null, '$firstName', '$lastName',
-         '$gender', '$phone','$email', null, '$pass', '2', '1')";
+         '$gender', '$phone','$email', '$address', '$pass', '$permission_id', '$status')";
+        $rs = false;
+        if (mysqli_query($this->con, $qr)) {
+            $rs = true;
+        }
+        return $rs;
+    }
+    function deleteUser($id) {
+        $qr = "DELETE from users where id = '$id'";
         $rs = false;
         if (mysqli_query($this->con, $qr)) {
             $rs = true;

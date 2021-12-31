@@ -1,0 +1,201 @@
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 101;
+    transform: scale(.8);
+    transition: .4s;
+    visibility: hidden;
+    opacity: 0;
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .login-overlay-product {
+        height: 100%;
+        width: 100%;
+        // padding: 4rem 0;
+        // position: relative;
+        display: flex;
+        align-items: center;
+        transition: .3s linear;
+        .btn-exit {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: black;
+            color: white;
+            padding: .2rem .5rem;
+            font-size: 1.5rem;
+        }
+        .btn-exit:hover {
+            cursor: pointer;
+        }
+        .check-login {
+            opacity: 0;
+            transition: .3s;
+            background-color: rgba(199, 32, 32, 0.788);
+            color: black;
+            padding: .5rem 1rem;
+            border-radius: 1rem;
+        }
+        .txt-field.error {
+            span {
+                background-color: #e74c3c;
+            }
+        }
+        .login-product, .register-product{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 25rem;
+            height: 70%;
+            margin: 0 auto;
+            background-color: white;
+            h2 {
+                margin-top: 1.5rem;
+            }
+        }
+        .register-product {
+            height: 85%;
+            .register-success {
+                position: absolute;
+                width: 20rem;
+                height: 15rem;
+                // background-color: rgba(54, 189, 54, 0.829);
+                top: 50%;
+                left: 50%;
+                text-align: center;
+                transform: translate(-50%, -50%);
+                transition: .5s linear;
+                visibility: hidden;
+                opacity: 0;
+                p {
+                    margin-top: 2rem;
+                }
+                p:last-child {
+                    letter-spacing: .2rem;
+                }
+                span {
+                    color: rgb(6, 58, 78);
+                    font-size: 1.5rem;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                }
+            }
+            .register-success.active {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        .form-login, .form-register {
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+            gap: 1rem;
+            width: 100%;
+            .txt-fullname {
+                display: flex;
+                width: 80%;
+                justify-content: space-between;
+                .txt-field:first-child {
+                    width: 35% !important;
+                }
+                .txt-field:last-child {
+                    width: 55% !important;
+                }
+            }
+            .txt-field {
+                border-bottom: .15rem solid #adadad;
+                position: relative;
+                margin-bottom: .5rem;
+                width: 80%; 
+                input { 
+                    height: 2rem;
+                    width: 100%;
+                    padding-left: 5px;
+                    border: none;
+                    font-size: 1rem;
+                }
+                label {
+                    position: absolute;
+                    top: 50%;
+                    left: 5px;
+                    color: #adadad;
+                    transform: translateY(-50%);
+                    pointer-events: none;
+                    transition: .5s;
+                }
+                small {
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    margin-top: 3px;
+                    color: #e74c3c;
+                }
+                span {
+                    // display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: .2rem;
+                    transition: .5s;
+                    background-color: black;
+                    transform: translateY(60%);
+                }
+                input:focus ~ label,
+                input:valid ~ label {
+                    top: -5px;
+                    color: black;
+                }
+                input:focus ~ span,
+                input:valid ~ span {
+                    width: 100%;
+                }
+            }
+            .txt-field.error {
+                span {
+                    background-color: #e74c3c;
+                }
+            }
+            .btn-login, .btn-register {
+                background-color: black;
+                color: white;
+                height: 3rem;
+                margin-top: 1rem;
+                width: 50%;
+                &:hover {
+                    cursor: pointer;   
+                }
+            }
+        } 
+        .radio-field {
+            color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            label {
+                margin: 0 1.5rem 0 .5rem;
+            }
+            input {
+                width: 1rem;
+                height: 1rem;
+            }
+        } 
+        .cd-register {
+            cursor: pointer;
+            border-bottom: .1rem solid #2691d9;
+            color: #2691d9;
+            display: inline-block;
+            margin-left: .5rem;
+           
+        }
+        .cd-register:hover {
+            transform: scale(1.2);
+        }
+    }
+}

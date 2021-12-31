@@ -2,18 +2,10 @@
 const btnBackToTop = document.querySelector('.back-to-top')
 const header = document.querySelector('.header-home-nav')
 btnBackToTop.onclick = () => {
-  console.log('ccc')
-  window.scrollY = 0
+  window.scrollTo({top: 0})
 }
 const handleScroll = () => {
-  if (window.scrollY > 200) {
-    btnBackToTop.style.display = 'flex'
-    header.classList.add('scroll')
-  }
-  else {
-    btnBackToTop.style.display = 'none'
-    header.classList.remove('scroll')
-  }
+  btnBackToTop.classList.toggle('active', window.scrollY > 200)
 }
 handleScroll()
 window.onscroll = handleScroll
@@ -152,37 +144,36 @@ document.addEventListener("keydown", (e) => {
 });
 
 // login click
+if (document.querySelector('.li-login')) {
+  let cdLogin = document.querySelector('.li-login')
+  let menuLogin = document.querySelector('.menu-overlay .menu')
+  let loginForm = document.querySelector('.login-form')
+  let registerForm = document.querySelector('.register-form')
 
-let cdLogin = document.querySelector('.li-login')
-let menuLogin = document.querySelector('.menu-overlay .menu')
-let loginForm = document.querySelector('.login-form')
-let registerForm = document.querySelector('.register-form')
+  cdLogin.onclick = () => {
+    console.log(menuLogin)
+    menuLogin.style.marginTop = 'calc(5rem - 100vh)'
+    loginForm.style.visibility = 'visible'
+  }
+  // register click
+  let cdRegister = document.querySelector('.cd-register')
+  cdRegister.onclick = () => {
+    menuLogin.style.marginTop = 'calc(10rem - 200vh)'
+    registerForm.style.visibility = 'visible'
+  }
+  // exit sign up
 
-console.log('cc')
-cdLogin.onclick = () => {
-  console.log(menuLogin)
-  menuLogin.style.marginTop = 'calc(5rem - 100vh)'
-  loginForm.style.visibility = 'visible'
+  let btnExitSignUp = document.querySelectorAll('.btn-exit')
+
+  btnExitSignUp[0].onclick = () => {
+    menuLogin.style.marginTop = '0'
+    loginForm.style.visibility = 'hidden'
+  }
+  btnExitSignUp[1].onclick = () => {
+    menuLogin.style.marginTop = 'calc(5rem - 100vh)'
+    registerForm.style.visibility = 'hidden'
+  }
 }
-// register click
-let cdRegister = document.querySelector('.cd-register')
-cdRegister.onclick = () => {
-  menuLogin.style.marginTop = 'calc(10rem - 200vh)'
-  registerForm.style.visibility = 'visible'
-}
-// exit sign up
-
-let btnExitSignUp = document.querySelectorAll('.btn-exit')
-
-btnExitSignUp[0].onclick = () => {
-  menuLogin.style.marginTop = '0'
-  loginForm.style.visibility = 'hidden'
-}
-btnExitSignUp[1].onclick = () => {
-  menuLogin.style.marginTop = 'calc(5rem - 100vh)'
-  registerForm.style.visibility = 'hidden'
-}
-
 //validator form register
 {
   const form = document.querySelector('.form-register')
@@ -288,39 +279,39 @@ btnExitSignUp[1].onclick = () => {
   })
 
   form.addEventListener('submit', function () {
-      if (checkLength(password, 6, 25) && checkEmail(email) && checkPasswordsMatch(password, password2)) {
-        let firstname = $('#reg-firstname').val()
-        let lastname = $('#reg-lastname').val()
-        let email = $('#reg-email').val()
-        let phone = $('#reg-phone').val()
-        let pass = $('#confirm-pass').val()
-        let gender
-        $('.btn-radio').each((index, value) => {
-          if (value.checked == true)
-            gender = value.value
-        })
+    if (checkLength(password, 6, 25) && checkEmail(email) && checkPasswordsMatch(password, password2)) {
+      let firstname = $('#reg-firstname').val()
+      let lastname = $('#reg-lastname').val()
+      let email = $('#reg-email').val()
+      let phone = $('#reg-phone').val()
+      let pass = $('#confirm-pass').val()
+      let gender
+      $('.btn-radio').each((index, value) => {
+        if (value.checked == true)
+          gender = value.value
+      })
 
-        $.post("./ajax/register", {
-          firstname: firstname,
-          lastname: lastname,
-          email: email,
-          phone: phone,
-          pass: pass,
-          gender: gender
-        }, (data) => {
-          console.log(data)
-          if (data == 1) {
-            $('.register-success').addClass('active')
-            $('.form-register').css({ 'display': 'none' })
-            $('.register').css({ 'background': 'rgba(54, 189, 54, 0.829)' })
-          }
-        })
-      }
+      $.post("./ajax/register", {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        phone: phone,
+        pass: pass,
+        gender: gender
+      }, (data) => {
+        console.log(data)
+        if (data == 1) {
+          $('.register-success').addClass('active')
+          $('.form-register').css({ 'display': 'none' })
+          $('.register').css({ 'background': 'rgba(54, 189, 54, 0.829)' })
+        }
+      })
+    }
 
   })
 }
 
-// ajax check register
+// ajax check login
 $(document).ready(() => {
   //ajax login
   $('.btn-login').click(() => {
@@ -354,4 +345,15 @@ $(document).ready(() => {
     }
   })
 
+})
+
+$('.product-list-wrap').slick({
+  slidesToShow : 4,
+  // slidesToScroll: 4,
+  Infinity: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  // dots: true
+  prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-arrow-left"></i></button>',
+  nextArrow: '<button type="button" class="slick-next"><i class="fas fa-arrow-right"></i></button>',
 })
