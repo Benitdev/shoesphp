@@ -1,5 +1,5 @@
 <section class="cart-section">
-  <h1> My Cart</h1>
+  <h1> Thông Tin Giỏ Hàng</h1>
   <div class="container">
     <div class="cart-wrapper">
       <div class="cart-product">
@@ -14,40 +14,40 @@
         <div class="items-wrap">
           <?php
           // if (isset($_SESSION['login'])) {
-            if (isset($_SESSION['product'])) {
-              foreach ($_SESSION['product'] as $value) {
+          if (isset($_SESSION['product'])) {
+            foreach ($_SESSION['product'] as $value) {
           ?>
-                <div class="item-wrap">
-                  <input class="id-cart" <?php if ($value['isChecked']) echo 'checked' ?> type="checkbox" value='<?php echo $value['id'] ?>'>
-                  <a href="product/detail/<?php echo $value['slug'] ?>/<?php echo $value['id'] ?>" class="info-wrap">
-                    <div class="img-wrap">
-                      <img src="<?php echo $value['avatar'] ?>" alt=''>
-                    </div>
-                    <div class="text-wrap">
-                      <p class="name-wrap"><?php echo $value['name'] ?></p>
-                      <p class="size-wrap"> Size: <?php echo $value['size'] ?></p>
-                    </div>
-                  </a>
-                  <div class="price">
-                    <?php echo number_format($value['price'], 0 , ',' , '.') ?> đ
+              <div class="item-wrap">
+                <input class="id-cart" <?php if ($value['isChecked']) echo 'checked' ?> type="checkbox" value='<?php echo $value['id'] ?>'>
+                <a href="product/detail/<?php echo $value['slug'] ?>/<?php echo $value['id'] ?>" class="info-wrap">
+                  <div class="img-wrap">
+                    <img src="<?php echo $value['avatar'] ?>" alt=''>
                   </div>
-                  <div class="quantity">
-                    <i class="fas fa-sort-down btn-dec"></i>
-                    <input type="text" class="quantity-item-cart" value="<?php echo number_format($value['quantity']) ?>">
-                    <i class="fas fa-sort-up btn-inc"></i>
+                  <div class="text-wrap">
+                    <p class="name-wrap"><?php echo $value['name'] ?></p>
+                    <p class="size-wrap"> Size: <?php echo $value['size'] ?></p>
                   </div>
-                  <div class="total">
-                    <?php echo $value['total'] ?>
-                  </div>
-                  <div class="del">
-                    <button class="btn btn-del-cart">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </div>
+                </a>
+                <div class="price">
+                  <?php echo number_format($value['price'], 0, ',', '.') ?> đ
                 </div>
+                <div class="quantity">
+                  <i class="fas fa-sort-down btn-dec"></i>
+                  <input type="text" class="quantity-item-cart" value="<?php echo number_format($value['quantity']) ?>">
+                  <i class="fas fa-sort-up btn-inc"></i>
+                </div>
+                <div class="total">
+                  <?php echo $value['total'] ?>
+                </div>
+                <div class="del">
+                  <button class="btn btn-del-cart">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
           <?php
-              }
             }
+          }
           // }
           ?>
         </div>
@@ -83,9 +83,9 @@
           <a href="checkout" class="btn btn-checkout">
             THANH TOÁN
           </a>
-          <button class="btn btn-keepshop">
+          <a href="product" class="btn btn-keepshop">
             TIẾP TỤC MUA HÀNG
-          </button>
+          </a>
         </div>
       </div>
     </div>

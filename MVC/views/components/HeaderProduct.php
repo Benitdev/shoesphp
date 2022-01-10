@@ -18,7 +18,12 @@
         <div class="header-icon">
             <div class="search-box">
                 <i class='bx bx-search'></i>
-                <input type="text" placeholder="Ten san pham">
+                <input type="text" placeholder="Tên sản phẩm">
+                <i class="fas fa-times btn-close-search"></i>
+                <div class="result-search">
+                    <div> Kết quả tìm kiếm cho "<span class="search-value"> hihi</span>"</div>
+                    <div class="item-search-wrap"></div>
+                </div>
             </div>
             <span></span>
             <div class="cart-icon-wrap">
@@ -47,7 +52,7 @@
                                     <div class="info-wrap">
                                         <p class="name-wrap">
                                             <?php echo $value['name'] ?>
-                                            <span style="color: red; background: transparent"> x
+                                            <span class="quantity-subcart" style="color: red; background: transparent"> x
                                                 <?php echo number_format($value['quantity']) ?>
                                             </span>
                                         </p>
@@ -70,14 +75,14 @@
             </div>
             <div class="user-info-wrap">
                 <?php if (isset($_SESSION['login'])) { ?>
-                    <i class='bx bxs-user user-icon-logged' style="color: blue">
+                    <i class='bx bxs-user user-icon-logged' style="color: lightgray">
                     </i>
                     <div class="user-info">
-                        <div> Xin chào </div>
+                    <div> Xin chào <span style="color: #45a29d; background: none"> <?=$_SESSION['login']['lastName']?> </span></div>
                         <hr>
-                        <div> Thông tin tài khoản </div>
+                        <div class="info-account"> Thông tin tài khoản </div>
                         <hr>
-                        <div> Đăng xuất </div>
+                        <a href="user/logout" class="logout"> Đăng xuất </a>
                     </div>
                 <?php } else { ?>
                     <i class='bx bxs-user user-icon'>

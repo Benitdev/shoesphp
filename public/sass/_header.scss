@@ -1,5 +1,5 @@
 .header-product {
-    background-color: #1f2833;
+    background-color: #202020;
     position: fixed;
     // top: 0;
     left: 0;
@@ -20,7 +20,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #66fcf1;
+            // color: #66fcf1;
+            color: white;
             width: fit-content;
             img{
                 width: 4rem;
@@ -35,7 +36,8 @@
             width: 25%;
             i {
                 font-size: 1.7rem;
-                color: #66fcf1;
+                // color: #66fcf1;
+                color: white;
                 cursor: pointer;
                 position: relative;
             }
@@ -46,9 +48,10 @@
                 top: 0;
                 right: 0;
                 transform: translate(50%, -50%);
-                background-color: $secondary-color;
+                // background-color: $secondary-color;
+                background-color: white;
                 border-radius: 100%;
-                color: white;
+                color: black;
                 font-size: .5rem;
                 display: flex;
                 justify-content: center;
@@ -61,9 +64,11 @@
             span {
                 width: .05rem;
                 height: 1.5rem;
-                background-color: $primary-color;
+                // background-color: $primary-color;
+                background-color: white;
             }
             .search-box {
+                position: relative;
                 width: 1.5rem;
                 display: flex;
                 align-items: center;
@@ -74,8 +79,80 @@
                    width: 0;
                    border: none;
                 }
+                .btn-close-search {
+                    position: absolute;
+                    font-size: .8rem;
+                    right: .2rem;
+                    display: none;
+                }
+                .result-search {
+                    position: absolute;
+                    width: 28rem;
+                    height: fit-content;
+                    background-color: #f5f5f5;
+                    top: 180%;
+                    left: -5rem;
+                    padding: 1rem;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: .5s;
+                    transform: translateY(3rem);
+                    border: 1px solid black;
+                    &.active {
+                        visibility: visible;
+                        opacity: 1;
+                        // background-color: blue;
+                        transform: translateY(0);
+                    }
+                    span {
+                        background-color: transparent;
+                    }
+                    .item-search-wrap {
+                        // background-color: #f5f5f5;
+                        border-top: 1px solid black;
+                        text-align: center;
+                        padding-top: .5rem;
+                        .product-list-item {
+                            display: flex;
+                            height: 5rem;
+                            color: black;
+                            gap: 1rem;
+                            padding: 0 .3rem;
+                            &:hover {
+                                border: 1px solid black;
+                              
+                            }
+                            img {
+                                height: 100%;
+                                object-fit: cover;
+                                width: 5rem;;
+                            }
+                            .product-info {
+                                padding: .5rem 0;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                flex: 1;
+                                div {
+                                    text-align: left;
+                                    display: flex;
+                                    gap: .5rem;
+                                    flex-direction: column;   
+                                    p {
+                                        font-size: .8rem;
+                                    }  
+                                }
+                                .price {
+                                    color: rgb(126, 44, 44);
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
-            .search-box:hover {
+            .search-box.hover {
                 background-color: lightgray;
                 padding: .2rem .5rem;
                 width: 100%;
@@ -125,22 +202,23 @@
                 left: 0;
             }
             &::before {
-                position: absolute;
+              /*   position: absolute;
                 content: '';
                 width: 20px;
                 height: 20px;
                 left: 49%;
                 top: 0;
                 transform: rotate(45deg) translateX(-50%);
-                background-color: $secondary-color;
+                background-color: $secondary-color; */
             }
         }
         .subcart-item-wrap {
             position: fixed;
-            background-color: $tertiary-color;
+            // background-color: $tertiary-color;
+            background-color: black;
             top: 5.1rem;
             right: 0;
-            width: 25rem;
+            width: 30rem;
             transform: translateX(50%);
             opacity: 0;
             padding: 1rem;
@@ -171,6 +249,8 @@
                 align-items: center;
                 font-size: 1rem;
                 padding: 1rem 1rem 1rem 0;
+                // background-color: blue;
+                width: 100%;
                 .img-wrap {
                     flex: 0.4;
                 }
@@ -248,6 +328,17 @@
             opacity: 1;
             transform: translateX(0);
         }
+    }
+    .info-account, .logout {
+        cursor: pointer;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+    .logout {
+        display: block;
+        color: white;
+        padding : 1rem 0;
     }
 }
 .wrap-3d {

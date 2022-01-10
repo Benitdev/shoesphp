@@ -6,6 +6,7 @@ btnBackToTop.onclick = () => {
 }
 const handleScroll = () => {
   btnBackToTop.classList.toggle('active', window.scrollY > 200)
+  header.classList.toggle('active', window.scrollY > 200)
 }
 handleScroll()
 window.onscroll = handleScroll

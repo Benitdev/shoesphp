@@ -19,7 +19,7 @@ class Cart extends Controller
     function addToCart($id) {
         $data = json_decode($this->ProductModel->getProductDetail('', $id));
         if (isset($data)) {
-            if (isset($_SESSION['product'][$id])) {
+            if (isset($_SESSION['product'][$id]) and $_SESSION['product'][$id]['size'] == $_POST['size']) { 
                 $arr = $_SESSION['product'][$id];
                 $arr['quantity']++;
                 $arr['total'] = $arr['quantity'] * $arr["price"];

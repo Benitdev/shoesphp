@@ -41,7 +41,9 @@ class Product extends Controller {
             "component" => "ProductDetail",
             "productInfo" =>  $this->ProductModel->getProductDetail($name, $id),
             "productImages" =>  $this->ProductModel->getImages($info->id),
-            "productSizes" => $this->ProductModel->getSizes($info->id)
+            "productSizes" => $this->ProductModel->getSizes($info->id),
+            // similar product list
+            "productList" => $this->ProductModel->getSimilarProductList($info->id)
         ]);
     }
 }

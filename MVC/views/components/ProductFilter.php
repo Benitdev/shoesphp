@@ -1,12 +1,16 @@
    <section class="product-filter">
        <div class="container">
            <div class="product-filter-title">
-               <div class="product-href">
-                   <a href="">Trang chủ </a>
-                   <a> <?php echo "/ " . $data['cate'] ?> </a>
+               <div class="product-href-wrap">
+                   
+                   <div class="product-href">
+                       <a href="">Trang chủ </a>
+                       <a> <?php echo "/ " . $data['cate'] ?> </a>
+                    </div>
+                   
                </div>
                <div class="sort">
-                   <p class="hide-filters"> Hide filters </p>
+                   <p class="hide-filters"> Ẩn thanh lọc </p>
                    <span></span>
                    <p> Sắp xếp theo
                        <i class="fas fa-sort-down"></i>
@@ -24,6 +28,13 @@
                                <p id="<?php echo $type->typeName ?>"> <?php echo $type->typeName ?></p>
                            <?php } ?>
                        </div>
+                       <form class="filter-price" onsubmit="return false">
+                            <div id="slider-range" style="height:14px;"></div>
+                            <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+                            <input type="hidden" id="start-price" value="1000000">
+                            <input type="hidden" id="end-price" value="10000000">
+                            <button type="submit"> Lọc </button>
+                       </form>
                        <div class="size-filter">
                            <div class="title">
                                <h3> Size </h3>

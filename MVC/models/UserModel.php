@@ -13,7 +13,8 @@ class UserModel extends DB
         return json_encode($users);
     }
 
-    function updateUser($id, $firstName, $lastName, $gender, $phone, $email, $address, $permission_id, $status) {
+    function updateUser($id, $firstName, $lastName, $gender, $phone, $email, $address, $permission_id, $status)
+    {
         $qr = "UPDATE users set
                  firstName = '$firstName',
                 lastName = '$lastName',
@@ -24,25 +25,25 @@ class UserModel extends DB
                 permission_id = '$permission_id',
                 status = '$status'
             where id = '$id'";
-         $rs = false;
-         if (mysqli_query($this->con, $qr)) {
-             $rs = true;
-             setcookie('msg', 'Chỉnh sửa thông tin thành công!', time() + 2);
-              header('Location: http://localhost/shoesphp/admin/account');
-            }
-         return $rs;
-
+        $rs = false;
+        if (mysqli_query($this->con, $qr)) {
+            $rs = true;
+            setcookie('msg', 'Chỉnh sửa thông tin thành công!', time() + 2);
+            header('Location: http://localhost/shoesphp/admin/account');
+        }
+        return $rs;
     }
 
-    function getUserDetail($id = "") {
+    function getUserDetail($id = "")
+    {
         $qr = "SELECT * FROM users
             where id = '$id'";
         $rows = mysqli_query($this->con, $qr);
         $row = mysqli_fetch_assoc($rows);
         return json_encode($row);
     }
-    
-    function insertUser($firstName, $lastName, $gender, $email, $phone, $address ='', $pass,  $permission_id = '0', $status = '1')
+
+    function insertUser($firstName, $lastName, $gender, $email, $phone, $address = '', $pass,  $permission_id = '0', $status = '1')
     {
         $qr = "INSERT into users VALUE(null, '$firstName', '$lastName',
          '$gender', '$phone','$email', '$address', '$pass', '$permission_id', '$status')";
@@ -52,7 +53,8 @@ class UserModel extends DB
         }
         return $rs;
     }
-    function deleteUser($id) {
+    function deleteUser($id)
+    {
         $qr = "DELETE from users where id = '$id'";
         $rs = false;
         if (mysqli_query($this->con, $qr)) {
@@ -101,4 +103,27 @@ class UserModel extends DB
         }
         return $rs;
     }
+
+    function insertComment($userId, $productId, $rating, $content)
+    {
+
+        $qr = "INSERT into comments VALUE(null, '$userId', '$productId', '$rating', '$content', current_timestamp())";
+        $rs = false;
+        if (mysqli_query($this->con, $qr)) {
+            $rs = true;
+        }
+        return $rs;
+    }
+
+    function getCountOrderStatus($id) {
+        $qr = "SELECT count(*) as count FROM `orders`  WHERE user_id = '$id' GROUP BY status";
+        $rows =  mysqli_query($this->con, $qr);
+        $arr  = array();
+        while($row = mysqli_fetch_assoc($rows)) {
+            $arr[] = $row;
+        };
+
+        return json_encode($arr);
+    }
+
 }

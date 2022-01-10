@@ -16,10 +16,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Monda:wght@700&family=Rubik:ital,wght@0,500;0,600;0,700;1,800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="public/css/reset.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="public/css/slick.css">
+
   <link rel="stylesheet" href="public/css/app.css">
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0" nonce="UxBgS8ZT"></script>
   <div class="wrapper">
     <!-- header -->
     <header class="header-product" id="header-product" data-scroll>
@@ -50,6 +55,8 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
   <!-- End Slider -->
   <!-- <script src="public/js/app.js"></script> -->
   <script src="public/js/detail.js"></script>

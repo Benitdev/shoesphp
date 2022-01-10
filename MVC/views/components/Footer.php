@@ -8,7 +8,7 @@
             </p>
         </div>
         <div class="col col-contact">
-            <h2>LIÊN HỆ <div class="underline"><span></span></div></h2>
+            <h2>Liên Hệ <div class="underline"><span></span></div></h2>
             <div class="contact">
                 <div class="contact-detail">
                     <i class="fas fa-map-marker-alt"></i>
@@ -32,13 +32,13 @@
             <h2> Links <div class="underline"><span></span></div></h2>
             <ul>
                 <li><a href=""> Nam</a></li>
-                <li><a href=""> Nu</a></li>
-                <li><a href=""> Tre em</a></li>
-                <li><a href=""> Khuyen mai</a></li>
+                <li><a href=""> Nữ</a></li>
+                <li><a href=""> Trẻ em</a></li>
+                <li><a href=""> Khuyến mãi</a></li>
             </ul>
         </div>
         <div class="col col-stay">
-            <h2>Giu Lien Lac <div class="underline"><span></span></div></h2>
+            <h2> Giữ Liên Lạc <div class="underline"><span></span></div></h2>
             <form>
                 <i class="far fa-envelope"></i>
                 <input type="email" placeholder="Enter your email">

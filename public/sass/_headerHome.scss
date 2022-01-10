@@ -11,6 +11,9 @@
         z-index: 199;
         width: 100%;
         transition: all .8s;
+        &.active {
+            background-color: #202020;
+        }
     }
     &-nav.scroll {
         background-color: #1f2833;

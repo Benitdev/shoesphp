@@ -3,19 +3,21 @@ main {
         padding: 3rem 0;
         padding-bottom: 10rem;
         // background: radial-gradient($primary-color 40%, $secondary-color);
-        background-color: $secondary-color;
+        background-color: #f5f5f5;
         h1 {
             padding: 1.5rem 0;
+            text-align: center;
+            font-size: 2rem;
         }
         .product-list {
             position: relative;
-            padding: 3rem 1.5rem;
+            padding: 0rem 1.5rem 3rem 1.5rem;
             // display: grid;
             // grid-template-columns: repeat(4, 1fr); 
             // grid-template-rows: repeat(4, 1);
             // grid-gap: 2rem;
-            border-top: .2rem solid $tertiary-color;
-            border-bottom: .2rem solid $tertiary-color;
+            // border-top: .2rem solid $tertiary-color;
+            // border-bottom: .2rem solid $tertiary-color;
             .product-list-wrap {
                 margin: 0 -15px;
             }
@@ -28,8 +30,8 @@ main {
                 height: 25rem;
                 gap: 1rem;
                 padding-bottom: 1rem;
-                background: #c5c6c7;
-                box-shadow: .1rem .1rem .2rem rgb(155, 82, 94);
+                // background: #c5c6c7;
+                // box-shadow: .1rem .1rem .2rem rgb(155, 82, 94);
                 margin: 0 7px;
                 img {
                     object-fit: cover;
@@ -39,7 +41,9 @@ main {
                 .cate-name {
                     position: absolute;
                     padding: .2rem .3rem;
-                    background: linear-gradient(to right, rgb(189, 152, 152), rgb(204, 159, 204), rgb(237, 163, 240));
+                 /*    background: linear-gradient(to right, rgb(189, 152, 152), rgb(204, 159, 204), rgb(237, 163, 240)); */
+                    background-color: black;
+                    color: white;
                     right: -1px;
                     top: 60%;
                     transform: translateY(-50%);

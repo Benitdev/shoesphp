@@ -29,66 +29,65 @@
             <div class="checkout-address">
                 <div class="address-form">
                     <h2> ĐỊA CHỈ NHẬN HÀNG</h2>
-                    <?php if(isset($_SESSION['login'])) {?>
-                    <form onsubmit="return false">
-                        <div class="txt-fullname">
+                    <?php if (isset($_SESSION['login'])) { ?>
+                        <form onsubmit="return false">
+                            <div class="txt-fullname">
+                                <div class="txt-field">
+                                    <input type="text" id="checkout-firstname" value='<?php echo $_SESSION['login']['firstName'] ?>'>
+                                    <label for=""> Họ </label>
+                                    <span></span>
+                                    <small></small>
+                                </div>
+                                <div class="txt-field">
+                                    <input type="text" id="checkout-lastname" name="reg-lastname" value='<?php echo $_SESSION['login']['lastName'] ?>'>
+                                    <label for=""> Tên </label>
+                                    <span></span>
+                                    <small></small>
+                                </div>
+                            </div>
                             <div class="txt-field">
-                                <input type="text" id="reg-firstname" value='<?php echo $_SESSION['login']['firstName'] ?>'>
-                                <label for=""> Họ </label>
+                                <input type="email" required id="checkout-email" name="reg-email" value='<?php echo $_SESSION['login']['email'] ?>'>
+                                <label for="">Email</label>
                                 <span></span>
                                 <small></small>
                             </div>
                             <div class="txt-field">
-                                <input type="text" id="reg-lastname" name="reg-lastname" value='<?php echo $_SESSION['login']['lastName'] ?>'>
-                                <label for=""> Tên </label>
+                                <input type="text" required id="checkout-phone" name="reg-phone" value='<?php echo $_SESSION['login']['phone'] ?>'>
+                                <label for="">Số điện thoại</label>
                                 <span></span>
                                 <small></small>
                             </div>
-                        </div>
-                        <div class="txt-field">
-                            <input type="email" required id="reg-email" name="reg-email" value='<?php echo $_SESSION['login']['email'] ?>'>
-                            <label for="">Email</label>
-                            <span></span>
-                            <small></small>
-                        </div>
-                        <div class="txt-field">
-                            <input type="text" required id="reg-phone" name="reg-phone" value='<?php echo $_SESSION['login']['phone'] ?>'>
-                            <label for="">Số điện thoại</label>
-                            <span></span>
-                            <small></small>
-                        </div>
-                        <div class="txt-field">
-                            <input type="text" required id="reg-address" name="reg-address">
-                            <label for="">Địa chỉ</label>
-                            <span></span>
-                            <small></small>
-                        </div>
-                        <div class="address-select">
-                            <select name="province" id="province" required>
-                                <option value=""> Chọn tỉnh thành </option>
-                                <?php
-                                $provinces = json_decode($data['province']);
-                                foreach ($provinces as $province) {
-                                    echo '<option>' . $province->_name . '</option>';
-                                }
-                                ?>
-                            </select>
-                            <select name="district" id="district">
-                                <option value=""> Chọn Quận/Huyện </option>
+                            <div class="txt-field">
+                                <input type="text" required id="checkout-address" name="reg-address">
+                                <label for="">Địa chỉ</label>
+                                <span></span>
+                                <small></small>
+                            </div>
+                            <div class="address-select">
+                                <select name="province" id="province" required>
+                                    <option value=""> Chọn tỉnh thành </option>
+                                    <?php
+                                    $provinces = json_decode($data['province']);
+                                    foreach ($provinces as $province) {
+                                        echo '<option>' . $province->_name . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                                <select name="district" id="district">
+                                    <option value=""> Chọn Quận/Huyện </option>
 
-                            </select>
-                            <select name="ward" id="ward">
-                                <option value=""> Chọn Phường/Xã </option>
+                                </select>
+                                <select name="ward" id="ward">
+                                    <option value=""> Chọn Phường/Xã </option>
 
-                            </select>
-                        </div>
-                        <small> Vui lòng điền chính xác thông tin giao hàng!</small>
-                        <input type="submit" class="btn btn-checkout-address" name="btn-checkout-address" value="TIẾP TỤC THANH TOÁN"></input>
-                    </form>
-                    <?php } 
-                    else {?>
+                                </select>
+                            </div>
+                            <small> Vui lòng điền chính xác thông tin giao hàng!</small>
+                            <input type="submit" class="btn btn-checkout-address" name="btn-checkout-address" value="TIẾP TỤC THANH TOÁN"></input>
+                        </form>
+                    <?php } else { ?>
                         <h3 style="margin-top: 5rem; color: white; text-align: center"> VUI LÒNG ĐĂNG NHẬP ĐỂ THANH TOÁN</h3>
-                    <?php }      
+                    <?php }
                     ?>
                 </div>
                 <div class="order-cart-detail">
@@ -101,30 +100,31 @@
                         </div>
                         <?php
                         // if (isset($_SESSION['login'])) {
-                            if (isset($_SESSION['product'])) {
-                                foreach ($_SESSION['product'] as $value) {
-                                    if ($value['isChecked']) {
+                        if (isset($_SESSION['product'])) {
+                            foreach ($_SESSION['product'] as $value) {
+                                if ($value['isChecked']) {
                         ?>
-                                        <div class="item-wrap">
-                                            <a href="product/detail/<?php echo $value['slug'] ?>/<?php echo $value['id'] ?>" class="info-wrap">
-                                                <div class="img-wrap">
-                                                    <img src="<?php echo $value['avatar'] ?>" alt=''>
-                                                </div>
-                                                <p class="name-wrap">
-                                                    <?php echo $value['name'] ?>
-                                                    <span style="color: red;"> x
-                                                        <?php echo number_format($value['quantity']) ?>
-                                                    </span>
-                                                </p>
-                                            </a>
-                                            <div class="total">
-                                                <?php echo number_format($value['total']) ?> đ
+                                    <div class="item-wrap">
+                                        <input class="id-cart" type="checkbox" value='<?php echo $value['id'] ?>' style='display: none'>
+                                        <a href="product/detail/<?php echo $value['slug'] ?>/<?php echo $value['id'] ?>" class="info-wrap">
+                                            <div class="img-wrap">
+                                                <img src="<?php echo $value['avatar'] ?>" alt=''>
                                             </div>
+                                            <p class="name-wrap">
+                                                <?php echo $value['name'] ?>
+                                                <span style="color: red;" class="quantity-product"> x
+                                                    <?php echo number_format($value['quantity']) ?>
+                                                </span>
+                                            </p>
+                                        </a>
+                                        <div class="total">
+                                            <?php echo number_format($value['total']) ?> đ
                                         </div>
+                                    </div>
                         <?php
-                                    }
                                 }
                             }
+                        }
                         // }
                         ?>
                         <div class="total-wrap">
@@ -187,7 +187,9 @@
                 </div>
                 <img src="https://c.static-nike.com/a/images/w_1200,c_limit/bzl2wmsfh7kgdkufrrjq/seo-title.jpg" alt="">
             </div>
-            <div class="checkout-confirm"></div>
+            <div class="checkout-confirm">
+                Đơn Hàng Của Bạn Đã Được Tạo Thành Công!
+            </div>
         </div>
     </div>
 </section>
