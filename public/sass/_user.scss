@@ -1,0 +1,150 @@
+.user-section {
+    padding: 5rem 0;
+    background-color: #f5f5f5;
+    min-height: 130vh;
+    h1 {
+        text-align: center;
+        padding: 2rem;
+    }
+    .user-wrapper {
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 5rem;
+        min-height: calc(100vh - 10rem);
+        .user-order {
+            flex: 0.6;
+            padding: 1rem 0;
+            .order-overview {
+                margin-top: 1rem;
+                // height: 100%;
+                border: 1px solid black;
+                .order-categories {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    padding: 1rem;
+                    &-filter {
+                        height: 3rem;
+                        width: 7.3rem;
+                        // border: 1px solid black;
+                        background-color: #202020;
+                        color: wheat;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0 .7rem;
+                        font-size: .8rem;
+                        gap: .3rem;
+                    }
+                }
+                .order-main-wrap {
+                    padding: 0 1rem 1rem 1rem;
+                }
+                .order-main {
+                    max-height: 23rem;
+                    overflow-y: auto;
+                    .order-item-wrap {
+                        position: relative;
+                        display: flex;
+                        font-size: .8rem;
+                        background-color: lightgray;
+                        margin-bottom: .5rem;
+                        padding: .5rem;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgb(190, 186, 186);
+                        }
+                        >div {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 3rem;
+                            flex-direction: column;
+                            gap: .3rem;
+                            // color: 
+                            span {
+
+                            }
+                        }
+                        .order-id {
+                            width: 13%;
+                        }
+                        .order-coupon {
+                            width: 15%;
+                        }
+                        .order-total{
+                            width: 27%;
+                            div {
+                                width: fit-content;
+                                .subtotal {
+                                    font-size: .6rem;
+                                    text-decoration: line-through;
+                                    font-style: italic;
+                                    margin-right: .3rem;
+                                    color: gray;
+                                }
+                                .total {
+                                    color: rgb(117, 26, 26);
+                                    // text-shadow: 1px 1px .5px red;
+                                }
+                            }
+                        }
+                        .order-address {
+                            width: 40%;
+                        }
+                        .order-create-at {
+                            position: absolute;
+                            top: -.5rem;
+                            right: .3rem;
+                            font-size: .6rem;
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .user-info {
+            flex: 0.4;
+            // margin-top: 1rem;
+            height: fit-content;
+            padding: 1rem 0;
+        }
+    }
+    .order-detail-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.699);
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: .4;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .order-detail-main {
+            width: 40%;
+            height: fit-content;
+            background-color: white;
+            margin-top: 10%;
+            h1 {
+                padding: 1rem;
+                // height: 5rem;
+                background-color: #202020;
+                color: wheat;
+            }
+
+            .order-detail-item-wrap {
+
+                .order-detail-item {
+                    display: flex;
+                    
+                }
+            }
+            
+        }
+    }
+}
